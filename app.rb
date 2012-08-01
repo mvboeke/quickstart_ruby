@@ -20,7 +20,9 @@ get '/' do
 end
 
 get "/braintree" do
-  result = Braintree::TransparentRedirect.confirm(request.query_string)
+  result = Braintree::TransparentRedirect.confirm(
+    request.query_string
+  )
 
   if result.success?
      message = "Transaction Successful"
